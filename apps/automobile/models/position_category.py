@@ -18,7 +18,6 @@ class PositionCategory(BaseModel):
     # relations
     car = models.ForeignKey('automobile.Car', on_delete=models.CASCADE)
     # fields
-    name = models.CharField(max_length=255, null=True)
     year = models.IntegerField('year', choices=year(), default=datetime.datetime.now().year)
     cost = models.FloatField()
     engine = models.CharField(max_length=255)
@@ -28,7 +27,6 @@ class PositionCategory(BaseModel):
     transmission_box = models.CharField(max_length=255)
     overclocking_time = models.FloatField()
     max_speed = models.IntegerField()
-    mileage = models.DecimalField(max_digits=10, decimal_places=2, blank=False, null=True, default=0.0)
 
     # security
     lockingRearWheelDifferential = models.BooleanField(default=False)
@@ -60,7 +58,7 @@ class PositionCategory(BaseModel):
     isofixMount = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.name)
+        return f"{self.car}s PositionCategory"
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         if self.cost and self.car:

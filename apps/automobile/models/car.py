@@ -19,11 +19,12 @@ class Car(BaseModel):
     ]
 
     company = models.ForeignKey(CarCompany, null=True, on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
+    model = models.CharField(max_length=255)
     cost_from = models.DecimalField(max_digits=9, decimal_places=3, null=True)
     color = ColorField(choices=COLOR_CHOICES)
-    about = models.TextField()
+    carbody = models.CharField(max_length=100, null=True)
     type = models.CharField(max_length=100, choices=TYPE_CHOICES, null=True)
+    description = models.TextField()
     internal_possibility = models.TextField()
     appearance = models.TextField()
     internal_photo = models.ImageField(upload_to='indernal_pics')
@@ -34,7 +35,7 @@ class Car(BaseModel):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return str(self.title)
+        return str(self.model)
 
 
 

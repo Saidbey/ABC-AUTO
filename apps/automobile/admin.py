@@ -1,30 +1,22 @@
 from django.contrib import admin
 from embed_video.admin import AdminVideoMixin
 # automobile app
-from apps.automobile.models.car import Car
-from apps.automobile.models.position_category import PositionCategory
-from apps.automobile.models.gifts import Gifts
-from apps.automobile.models.company import CarCompany
+from apps.automobile.models import CarCompany, Usedcars, Gifts, PositionCategory, Car
 
 # calculator app
-from apps.calculator.models.cridet import Cridet
-from apps.calculator.models.payment import Payment
+from apps.calculator.models import Payment, Cridet
 
 # company app
-from apps.company.model.about import AboutCompany, Filials
-from apps.company.model.address import Address
+from apps.company.model import AboutCompany, Filials, Address
 
 # siteconfig
-from apps.siteconfig.model.banner import Banner
-from apps.siteconfig.model.menubar import MenuBar
+from apps.siteconfig.model import Banner, MenuBar
 
 # blog app
-from apps.blog.model.news import News
-from apps.blog.model.comments import Comment
+from apps.blog.model import News, Comment
 
 # user app
-from apps.users.models.customer import Customer
-from apps.users.models.user import User
+from apps.users.models import Customer, User
 
 # Register your models here.
 # automobile
@@ -32,6 +24,7 @@ admin.site.register(CarCompany)
 admin.site.register(Car)
 admin.site.register(PositionCategory)
 admin.site.register(Gifts)
+admin.site.register(Usedcars)
 
 # calculator
 admin.site.register(Cridet)
