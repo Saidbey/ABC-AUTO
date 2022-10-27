@@ -4,7 +4,7 @@ from apps.shared.django.model import BaseModel
 
 class CarCompany(BaseModel):
     title = models.CharField(max_length=100, null=True)
-    logo = models.ImageField(upload_to='company_logo')
+    logo = models.ImageField(upload_to='car/company_logo')
     about = models.TextField(null=True)
 
     def __str__(self):

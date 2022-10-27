@@ -1,7 +1,7 @@
 from django.contrib import admin
 from embed_video.admin import AdminVideoMixin
 # automobile app
-from apps.automobile.models import CarCompany, Usedcars, Gifts, PositionCategory, Car
+from apps.automobile.models import CarCompany, Usedcars, Gifts, PositionCategory, Car, CarLikes
 
 # calculator app
 from apps.calculator.models import Payment, Cridet
@@ -25,6 +25,7 @@ admin.site.register(Car)
 admin.site.register(PositionCategory)
 admin.site.register(Gifts)
 admin.site.register(Usedcars)
+admin.site.register(CarLikes)
 
 # calculator
 admin.site.register(Cridet)

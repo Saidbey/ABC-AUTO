@@ -30,7 +30,7 @@ SECRET_KEY = '13scl_s5v&=r#wg4rjjx=qr19hnf^!=q3gs&gpw2*$tk^uj!nm'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 

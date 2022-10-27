@@ -18,7 +18,7 @@ class PositionCategory(BaseModel):
     # relations
     car = models.ForeignKey('automobile.Car', on_delete=models.CASCADE)
     # fields
-    year = models.IntegerField('year', choices=year(), default=datetime.datetime.now().year)
+    year = models.PositiveIntegerField('year', choices=year(), default=datetime.datetime.now().year)
     cost = models.FloatField()
     engine = models.CharField(max_length=255)
     engine_size = models.DecimalField(max_digits=10, decimal_places=2, null=True)
@@ -26,7 +26,7 @@ class PositionCategory(BaseModel):
     drive_type = models.CharField(max_length=255)
     transmission_box = models.CharField(max_length=255)
     overclocking_time = models.FloatField()
-    max_speed = models.IntegerField()
+    max_speed = models.PositiveIntegerField()
 
     # security
     lockingRearWheelDifferential = models.BooleanField(default=False)
@@ -44,7 +44,7 @@ class PositionCategory(BaseModel):
     height = models.FloatField()
     width = models.FloatField()
     length = models.FloatField()
-    seats_count = models.IntegerField()
+    seats_count = models.PositiveIntegerField()
     rearSuspension = models.CharField(max_length=100, null=True)
     brakeAssistSystem = models.CharField(max_length=100, null=True)
     antilockBrakingSystem = models.CharField(max_length=100, null=True)

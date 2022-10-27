@@ -1,16 +1,16 @@
 from django.db import models
-from apps.shared.django.model import BaseModel
 from ckeditor.fields import RichTextField
 
 # project
-from apps.automobile.models import CarCompany, Car
+from apps.shared.django.model import BaseModel
+from apps.automobile.models import Car
 
 
 class News(BaseModel):
     car = models.ForeignKey(Car, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='news')
-    video = models.FileField(upload_to='news', blank=True)
+    image = models.ImageField(upload_to='blog/news')  # I prefered not to set validator here
+    video = models.FileField(upload_to='blog/news', blank=True)
     summary = models.TextField()
     content = RichTextField(blank=True, null=True)
 

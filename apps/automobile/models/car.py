@@ -1,6 +1,9 @@
 from django.db import models
 from apps.shared.django.model import BaseModel
 from colorfield.fields import ColorField
+
+from apps.shared.utils.valid_size import validate_file_size, validate_img_size
+from apps.users.models import User
 from .company import CarCompany
 from .gifts import Gifts
 
@@ -27,15 +30,21 @@ class Car(BaseModel):
     description = models.TextField()
     internal_possibility = models.TextField()
     appearance = models.TextField()
-    internal_photo = models.ImageField(upload_to='indernal_pics')
-    external_photo = models.ImageField(upload_to='external_pics')
-    side_photo = models.ImageField(upload_to='side_pics')
+    internal_photo = models.ImageField(upload_to='car/indernal_pics', validators=[validate_img_size])
+    external_photo = models.ImageField(upload_to='car/external_pics', validators=[validate_img_size])
+    side_photo = models.ImageField(upload_to='car/side_pics', validators=[validate_img_size])
+    video = models.FileField(blank=True, null=True, upload_to='car/video', validators=[validate_file_size])
     bonusForCustomers = models.ManyToManyField(Gifts, related_name='gifts')
-    discount = models.IntegerField(null=True)
+    discount = models.PositiveIntegerField(null=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.model)
+
+
+class CarLikes(models.Model):
+    likeusers = models.ManyToManyField(User)
+    likepost = models.ForeignKey(Car, on_delete=models.CASCADE, null=True, related_name='likepost')
 
 
 
